@@ -1051,4 +1051,6 @@ int timssdr_board_partid_serialno_read(
 	read_partid_serialno->serial_no[1] = 0x0;
 	read_partid_serialno->serial_no[2] = 0x0;
 	read_partid_serialno->serial_no[3] = 0x0;
+
+	return TIMSSDR_SUCCESS;
 }
