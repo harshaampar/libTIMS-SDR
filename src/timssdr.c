@@ -572,10 +572,11 @@ timssdr_device_list_t* timssdr_device_list()
 		timssdr_device_list_free(list);
 		return NULL;
 	}
-
+	printf("Devices found : \n");
 	for (i = 0; i < list->usb_devicecount; i++) {
 		struct libusb_device_descriptor device_descriptor;
 		libusb_get_device_descriptor(list->usb_devices[i], &device_descriptor);
+		printf("Vendor ID : %x, product ID : %x\n",device_descriptor.idVendor, device_descriptor.idProduct);
 
 		if (device_descriptor.idVendor == timssdr_usb_vid) {
 			if (device_descriptor.idProduct == timssdr_usb_pid) {

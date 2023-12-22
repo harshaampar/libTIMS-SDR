@@ -14,6 +14,10 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 set_target_properties(timssdr_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 target_link_libraries(timssdr_static usb usb-1.0 pthread)
 
+add_executable(timssdr-info ${CMAKE_CURRENT_SOURCE_DIR}/tests/timssdr-info.c)
+target_include_directories(timssdr-info PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(timssdr-info timssdr)
+
 install(TARGETS timssdr
 LIBRARY DESTINATION /usr/lib/x86_64-linux-gnu/
 COMPONENT sharedlibs
